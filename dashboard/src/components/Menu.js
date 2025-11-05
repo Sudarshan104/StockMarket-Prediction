@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 
+
 import { Link } from "react-router-dom";
+
+
+
+
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
+
+   
+  
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
   };
@@ -22,6 +30,14 @@ const Menu = () => {
       <img src="logo.png" style={{ width: "50px" }} />
       <div className="menus">
         <ul>
+        <li>
+        <Link to="/Login">
+          <p className={selectedMenu === 0 ? activeMenuClass : menuClass}>
+            login/signup
+           </p>
+        </Link></li>
+
+       
           <li>
             <Link
               style={{ textDecoration: "none" }}
@@ -69,11 +85,22 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to="funds"
+              to="/funds"
               onClick={() => handleMenuClick(4)}
             >
               <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>
                 Funds
+              </p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/analytics"
+              onClick={() => handleMenuClick(5)}
+            >
+              <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>
+                Analytics
               </p>
             </Link>
           </li>
